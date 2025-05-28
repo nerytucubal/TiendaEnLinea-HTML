@@ -35,17 +35,30 @@
             <div class="align-items-center d-none d-md-flex" style="height: 60px;">
                 <a class="text-light fw-bold fs-4 d-flex text-decoration-none" href="#">TiendaChic</a>
             </div>
-            <div class="iconos d-flex justify-content-end align-items-center order-md-2" style="height:60px;">
-                <a href="#" class="text-light"><i class="bi bi-search me-2 me-md-3"></i></a>
-                <a href="#" class="text-light"><i class="bi bi-person me-2 me-md-3 fs-5"></i></a>
-                <a href="#" class="text-light position-relative"><i class="bi bi-heart me-2 me-md-3"></i><span
+            <div class="iconos d-flex justify-content-end align-items-center order-md-2" style="height:60px;"
+                id="contenedor-iconos">
+                <a class="text-light bg-transparent border-0"><i class="bi bi-search me-2 me-md-3"></i></a>
+                <a class="text-light bg-transparent border-0"><i class="bi bi-person me-2 me-md-3 fs-5"></i></a>
+                <a class="text-light position-relative bg-transparent border-0"><i
+                        class="bi bi-heart me-2 me-md-3"></i><span
                         class="position-absolute top-0 translate-middle p-2 bg-danger rounded-circle notification-heart">2</span></a>
-                <a href="#" class="text-light position-relative"><i class="bi bi-cart2"></i><span
-                        class="position-absolute top-0 translate-middle p-2 bg-danger rounded-circle notification-shop">3</span></a>
+                <a class="text-light position-relative bg-transparent border-0"><i class="bi bi-cart2"
+                        id="carrito"></i></i><span
+                        class="position-absolute top-0 translate-middle p-2 bg-danger rounded-circle notification-shop d-none"
+                        id="notification"></span></a>
             </div>
         </div>
     </header>
 
+    <div class="offcanvas offcanvas-start bg-dark text-light" data-bs-scroll="true" data-bs-backdrop="false"
+        tabindex="-1" id="offcanvasScrolling" aria-labelledby="offcanvasScrollingLabel">
+        <div class="offcanvas-header border-bottom border-muted">
+            <h5 class="offcanvas-title" id="offcanvasScrollingLabel">Carrito de Productos</h5>
+            <button type="button" class="btn-close bg-light" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" id="Productos-Guardados">
+        </div>
+    </div>
     <main>
         <section style="background: #6A11CB; background: linear-gradient(90deg,#6A11cb 20%, #2575fc 100%);">
             <div class="container">
@@ -63,8 +76,8 @@
                         <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel">
                             <div class="carousel-inner rounded-4">
                                 <div class="carousel-item active">
-                                    <img src="./img/ropa.webp" class="d-block w-100" alt="imagen de ropa"
-                                        height="400px" style="object-fit: cover;">
+                                    <img src="./img/ropa.webp" class="d-block w-100" alt="imagen de ropa" height="400px"
+                                        style="object-fit: cover;">
                                 </div>
                                 <div class="carousel-item">
                                     <img src="./img/calzado.webp" class="d-block w-100" alt="imagen de calzados"
@@ -100,7 +113,8 @@
                     <h2 class="text-center fw-bold mb-5 mt-5">Categorías populares</h2>
                     <div class="col-6 col-sm-6 col-md-3">
                         <div class="card border-0 shadow">
-                            <img src="./img/ropa.webp" class="card-img-top" height="170px" alt="imgen de ropa" style="object-fit: cover;">
+                            <img src="./img/ropa.webp" class="card-img-top" height="170px" alt="imgen de ropa"
+                                style="object-fit: cover;">
                             <div class="card-body">
                                 <h6 class="card-title">Ropa</h6>
                                 <a href="#" class="card-link text-decoration-none" style="color: #6A11CB;">Ver productos
@@ -110,7 +124,8 @@
                     </div>
                     <div class="col-6 col-md-3">
                         <div class="card border-0 shadow">
-                            <img src="./img/calzados.avif" class="card-img-top" height="170px" alt="imagen de calzado" style="object-fit: cover;">
+                            <img src="./img/calzados.avif" class="card-img-top" height="170px" alt="imagen de calzado"
+                                style="object-fit: cover;">
                             <div class="card-body">
                                 <h6 class="card-title">Calzado</h6>
                                 <a href="#" class="card-link text-decoration-none" style="color: #6A11CB;">Ver productos
@@ -210,7 +225,11 @@
             <div class="container">
                 <h2 class="text-center fw-bold pt-3">Productos Destacados</h2>
                 <div class="row g-4 mt-4 mb-5" id="contenedor_productos">
-                    
+                    <div class="d-flex justify-content-center" id="loading">
+                        <div class="spinner-border" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

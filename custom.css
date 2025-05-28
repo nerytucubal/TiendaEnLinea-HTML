@@ -59,6 +59,9 @@
     border-width: 1px;
     border-color: #6a11bc;
 }
+#contenedor-iconos a:hover{
+    cursor: pointer;
+}
 @media (min-width:640px) {
     .selecciones {
         width: auto !important;
